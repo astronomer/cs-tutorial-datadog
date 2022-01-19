@@ -1,17 +1,19 @@
 # CSE Tutorial - Datadog
 Proof of concept to integrate the Datadog API with callbacks and Airflow tasks to update Datadog objects (i.e. Logs, Metrics, etc.)
 ___
-#Prerequisites
+# Prerequisites
 - [Astro CLI](https://docs.astronomer.io/enterprise/cli-quickstart/)
 - [GIT](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - A Datadog account
 ___
-#Steps to Use:
-###Run the following in your terminal:
+# Steps to Use
+
+### Run the following in your terminal
 1. `git clone git@github.com:astronomer/cs-tutorial-datadog.git`
 2. `cd cs-tutorial-datadog`
 3. `astro dev start`
-###Add the `datadog_default` connection to your sandbox:
+
+### Add the `datadog_default` connection to your sandbox
 *Note that the `airflow_settings.yaml` file has the `datadog_default` connection predefined and it should generate automatically. However, if it doesn't automatically populate when you use the `astro d start` command, you can either add it manually using the steps below, or just try restarting your sandbox using `astro dev stop && astro dev start`. Keep in mind that you'll need to replace the `<INSERT-API-KEY>` and `<INSERT-APP-KEY>` of the connection's extra field with your actual API key and APP key.*
 
 1. Go to your sandbox http://localhost:8080/home
@@ -21,12 +23,13 @@ ___
     - Connection Type: `HTTP`
     - Host: `https://http-intake.logs.datadoghq.com`
     - Extra: `{"api_key": "<INSERT-API-KEY>", "app_key": "<INSERT-APP-KEY>"}`
-###Unpause and run the `datadog_poc` DAG:
+
+### Unpause and run the `datadog_poc` DAG
 1. Go to your DAGs by navigating to http://localhost:8080/home
 2. Unpause the DAG by toggling the switch to the left of the `datadog_poc` DAG
 3. Click the trigger icon under the *Actions* section of the `datadog_poc` DAG
 
-###Viewing the results of the DAG Run:
+### Viewing the results of the DAG Run
 
 Check your Datadog log explorer, you should see logs begin to populate for each of the tasks in the DAG
 ![img.png](img.png)
