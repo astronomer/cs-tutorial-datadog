@@ -27,6 +27,7 @@ ___
 3. Click the trigger icon under the *Actions* section of the `datadog_poc` DAG
 
 ###Viewing the results of the DAG Run:
+
 Check your Datadog log explorer, you should see logs begin to populate for each of the tasks in the DAG
 ![img.png](img.png)
 
