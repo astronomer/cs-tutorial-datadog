@@ -36,11 +36,11 @@ Check your Datadog log explorer, you should see logs begin to populate for each 
 
 You may have noticed that one of the tasks failed in  your DAG run, **this is by design** as it will allow you to see what task failures would look like in the Datadog Logs UI
 
-If you look at the code for the `datadoc_poc` DAG, you'll notice that in the `default_args` for the DAG, we've set the following parameters:
+If you look at the [code for the `datadoc_poc` DAG](https://github.com/astronomer/cs-tutorial-datadog/blob/main/dags/datadoc_poc.py#L18-L20), you'll notice that in the `default_args` for the DAG, we've set the following parameters:
 - `on_success_callback`
 - `on_failure_callback`
 - `on_retry_callback`
 
-These callback functions are defined in the `/include/datadog.py` directory and can be customized to suite your organization's needs.
+These callback functions are defined in [the `/include/datadog.py` directory](https://github.com/astronomer/cs-tutorial-datadog/blob/main/include/datadog.py#L25) and can be customized to suite your organization's needs.
 
-There is also another task in our DAG that is called `send_log_to_datadog` this also uses the custom library located at `/include/datadog.py` to pass sepecified parameters to the Datadog log. In this POC, we are using [Jinja Template Variables](https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html). But these can also be customized to suite your organization's needs.
+There is also [another task in our DAG that is called `send_log_to_datadog`](https://github.com/astronomer/cs-tutorial-datadog/blob/main/dags/datadoc_poc.py#L38) this also uses the custom library located at `/include/datadog.py` to pass sepecified parameters to the Datadog log. In this POC, we are using [Jinja Template Variables](https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html). But these can also be customized to suite your organization's needs.
